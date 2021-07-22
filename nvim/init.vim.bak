@@ -1,0 +1,78 @@
+set exrc
+set guicursor=
+set relativenumber
+set nohlsearch
+set hidden
+set noerrorbells
+set tabstop=4 softtabstop=4
+set shiftwidth=4
+set expandtab
+set smartindent
+set nu
+set nowrap
+set noswapfile
+set nobackup
+set incsearch
+set termguicolors
+set scrolloff=8
+set noshowmode
+set completeopt=menuone,noinsert,noselect
+set signcolumn=yes
+
+call plug#begin("~/.vim/plugged")
+
+Plug 'scrooloose/syntastic'
+Plug 'scrooloose/nerdtree'
+Plug 'ryanoasis/vim-devicons'
+Plug 'itchyny/lightline.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'folke/lsp-colors.nvim'
+Plug 'gruvbox-community/gruvbox'
+Plug 'nvim-lua/completion-nvim'
+Plug 'neovim/nvim-lspconfig'
+Plug 'glepnir/lspsaga.nvim'
+
+call plug#end()
+
+colorscheme gruvbox
+set background=dark
+let mapleader="\<Space>" 
+
+let g:gruvbox_invert_selection='0'
+let g:gruvbox_contrast_dark='hard'
+
+if exists('+termguicolors')
+	let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+	let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+endif
+
+
+
+
+
+
+
+
+" lsp provider to find the cursor word definition and reference
+nnoremap <silent> gh <cmd>lua require'lspsaga.provider'.lsp_finder()<CR>
+
+" code action
+nnoremap <silent><leader>ca <cmd>lua require('lspsaga.codeaction').code_action()<CR>
+
+" show hover doc
+nnoremap <silent> K <cmd>lua require('lspsaga.hover').render_hover_doc()<CR>
+
+" show signature help
+nnoremap <silent> gs <cmd>lua require('lspsaga.signaturehelp').signature_help()<CR>
+
+" rename
+nnoremap <silent>gr <cmd>lua require('lspsaga.rename').rename()<CR>
+
+" preview definition
+nnoremap <silent> gd <cmd>lua require'lspsaga.provider'.preview_definition()<CR>
+
+nnoremap <silent><leader>dg <cmd>lua require'lspsaga.diagnostic'.show_line_diagnostics()<CR>
+
+let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
+lua require('lspconfig').tsserver.setup{ on_attach=require'completion'.on_attach }
+lua require('lspsaga').init_lsp_saga()
