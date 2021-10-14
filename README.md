@@ -16,6 +16,8 @@ My favorite one is: https://github.com/rupa/z
 
 Node version manager (better than nvm) https://github.com/tj/n
 
+Search files and folders https://github.com/BurntSushi/ripgrep
+
 ## Editor
 
 NvChad https://github.com/NvChad/NvChad
