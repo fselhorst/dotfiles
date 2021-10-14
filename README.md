@@ -13,3 +13,5 @@ unzip and move to ~/.fonts/
 ## Other tools
 
 My favorite one is: https://github.com/rupa/z
+
+Node version manager (better than nvm) https://github.com/tj/n
