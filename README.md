@@ -15,3 +15,7 @@ unzip and move to ~/.fonts/
 My favorite one is: https://github.com/rupa/z
 
 Node version manager (better than nvm) https://github.com/tj/n
+
+## Editor
+
+NvChad https://github.com/NvChad/NvChad
