@@ -9,3 +9,7 @@ https://archcraft.io/
 JetBrainsMono Nerd Font (because it has glyph support)
 https://www.nerdfonts.com/font-downloads
 unzip and move to ~/.fonts/
+
+## Other tools
+
+My favorite one is: https://github.com/rupa/z
